@@ -51,7 +51,7 @@ const Navigation = () => {
 
   const logoutHandler = () => {
     window.localStorage.removeItem("user");
-    window.location.href = "http://localhost:3000";
+    window.location.href = "https://myrestaurant-foodie.herokuapp.com";
   };
 
   return (
