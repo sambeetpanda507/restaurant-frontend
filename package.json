@@ -3,12 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.3.0",
+    "aos": "^2.3.4",
+    "axios": "^0.21.0",
+    "bootstrap": "^5.0.0-alpha1",
+    "framer-motion": "^2.9.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-shimmer-effect": "^1.0.9",
+    "react-toastify": "^6.1.0",
+    "simple-react-lightbox": "^3.3.4-2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -34,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1"
   }
 }

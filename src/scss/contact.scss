@@ -1,0 +1,53 @@
+.contact__nav__links {
+  list-style: none;
+  display: flex;
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  & a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+}
+
+.MuiBottomNavigationAction-label {
+  font-size: 1.6rem !important;
+}
+
+form {
+  font-size: 1.6rem;
+  .form-control {
+    font-size: 1.8rem;
+  }
+  & button {
+    font-size: 1.7rem !important;
+    background-color: orangered !important;
+    border: none !important;
+  }
+}
+
+.help__list {
+  list-style: none;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    margin: 2rem;
+    background-color: orangered;
+    color: white;
+  }
+  li {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}

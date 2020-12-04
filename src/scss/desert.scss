@@ -1,0 +1,30 @@
+.desert {
+  padding: 10rem 0rem;
+  background-color: #fee2b3;
+  & p {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    color: rgb(63, 63, 63);
+  }
+  & h1 {
+    font-size: 4rem;
+    font-weight: bolder;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+.desert__items {
+  & div {
+    border: 0.2rem solid rgb(187, 186, 186);
+    padding: 0.4rem;
+    transition: 0.3s linear;
+    border-radius: 0.3rem;
+    &:hover {
+      color: white;
+      cursor: pointer;
+      background-color: #fff;
+      transition: 0.3s linear;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.footer {
+  background-color: #645f56;
+  position: relative;
+  top: 10rem;
+  padding: 5rem 1rem 5rem 1rem;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  p {
+    font-size: 1.6rem;
+  }
+  ul {
+    list-style: none;
+    & li {
+      & h1 {
+        color: white;
+      }
+      font-size: 1.8rem;
+      color: #a2a58a;
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.social {
+  display: flex;
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffff;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    padding: 0rem 1rem;
+    margin: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.copyright {
+  margin-top: 6rem;
+}
