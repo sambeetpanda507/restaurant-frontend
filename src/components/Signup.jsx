@@ -40,6 +40,7 @@ function Signup(props) {
   const [password, setPassword] = React.useState("");
   const [address, setAddress] = React.useState("");
   const [err, setErr] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -56,14 +57,17 @@ function Signup(props) {
         contactNumber: number,
         address: address,
       },
+      onDownloadProgress: setLoading(true),
     })
       .then((data) => {
         if (data.status === 200) {
           props.history.replace("/");
+          setLoading(false);
         }
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
         setErr(err.response.data.message.msg);
         window.alert(err.response.data.message.msg);
         notify();
@@ -208,6 +212,18 @@ function Signup(props) {
                     Forgot password? Click{" "}
                     <Link to="/forgot-password">here</Link>.
                   </small>
+                </div>
+                <div className="text-cente d-flex align-items-center justify-content-center p-2">
+                  {loading === true ? (
+                    <div
+                      className="spinner-border text-primary text-center"
+                      role="status"
+                    >
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <button
                   type="submit"

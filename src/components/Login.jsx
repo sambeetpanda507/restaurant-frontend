@@ -3,12 +3,25 @@ import { Link } from "react-router-dom";
 import axios from "../axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { makeStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const classes = useStyles();
 
   const inputChangeHandler = (event) => {
     let name = event.target.name;
@@ -36,6 +49,7 @@ function Login() {
             email: email,
             password: password,
           },
+          onDownloadProgress: setLoading(true),
         });
         if (res) {
           window.localStorage.setItem("user", JSON.stringify(res.data));
@@ -44,9 +58,11 @@ function Login() {
           setEmail("");
           setPassword("");
           setError(null);
+          setLoading(false);
         }
       } catch (error) {
         setError("Invalid email or password");
+        setLoading(false);
       }
     };
     login();
@@ -99,6 +115,13 @@ function Login() {
             value={email}
             required
           />
+          {loading === true ? (
+            <div className={classes.root}>
+              <LinearProgress color="secondary" />
+            </div>
+          ) : (
+            ""
+          )}
           {error === null ? (
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -109,6 +132,7 @@ function Login() {
             </small>
           )}
         </div>
+
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password</label>
           <input
@@ -121,6 +145,7 @@ function Login() {
             required
           />
         </div>
+
         {error === null ? (
           ""
         ) : (
@@ -132,6 +157,13 @@ function Login() {
             {error}
           </small>
         )}
+        {loading === true ? (
+          <div className={classes.root}>
+            <LinearProgress color="secondary" />
+          </div>
+        ) : (
+          ""
+        )}
         <div className="message">
           <small
             id="emailHelp"
@@ -142,9 +174,23 @@ function Login() {
             up. Forgot password? Click <Link to="/forgot-password">here</Link>.
           </small>
         </div>
+        {/* <div className="d-flex align-items-center justify-content-center"> */}
         <button type="submit" className="btn btn-primary mt-3">
           Login
         </button>
+        {/* <div className="text-cente d-flex align-items-center justify-content-center p-2">
+            {loading === true ? (
+              <div
+                className="spinner-border text-primary text-center"
+                role="status"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : (
+              ""
+            )}
+          </div> */}
+        {/* </div> */}
       </form>
     </div>
   );
