@@ -43,6 +43,9 @@ function Signup(props) {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
+    if (password.length < 8) {
+      return window.alert("Password must be 8 characters long");
+    }
     axios({
       url: "/api/signUp",
       method: "POST",
@@ -156,7 +159,7 @@ function Signup(props) {
                   </small>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputNumber1">Number</label>
+                  <label htmlFor="exampleInputNumber1">Contact Number</label>
                   <input
                     type="Number"
                     className="form-control"
@@ -182,6 +185,9 @@ function Signup(props) {
                     }}
                     required
                   />
+                  <small id="emailHelp" className="form-text text-muted">
+                    Password must be 8 characters long with atleast one number
+                  </small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="exampleFormControlTextarea1">Address</label>

@@ -44,6 +44,11 @@ function ChangePassword(props) {
     if (password !== newPasswrod) {
       return window.alert("Password doesnot match");
     }
+    if (password.length < 8) {
+      return window.alert(
+        "Password must have atleast 8 characters with alphanumeric value."
+      );
+    }
     axios({
       url: `/api/reset-password/${props.match.params.token}`,
       method: "patch",
@@ -58,6 +63,7 @@ function ChangePassword(props) {
       .catch((err) => {
         console.log(err);
         setLoading(false);
+        window.alert(err.response.data.message.msg);
         setError(err.response.data.message.msg);
         notify();
       });

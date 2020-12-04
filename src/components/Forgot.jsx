@@ -54,6 +54,7 @@ function Forgot() {
       })
       .catch((err) => {
         setLoading(false);
+        window.alert(err.response.data.message.msg);
         setError(err.response.data.message.msg);
         notify();
       });
